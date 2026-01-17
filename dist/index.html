@@ -17,29 +17,41 @@
         opacity: 1;
         transform: translateY(0);
       }
-      .experience-card {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-  }
-
-  .experience-card.show {
-    opacity: 1;
+      @keyframes float-desktop {
+  0% {
     transform: translateY(0);
   }
-
-  .phone-mockup {
-    animation: float 4s ease-in-out infinite;
+  50% {
+    transform: translateY(-20px);
   }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  100% {
+    transform: translateY(0);
   }
+}
+
+@keyframes float-mobile {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float-mobile 4s ease-in-out infinite;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .animate-float {
+    animation: float-desktop 4s ease-in-out infinite;
+  }
+}
+
 
   @keyframes glowText {
     0% {
@@ -63,13 +75,6 @@
   .animate-glow {
     animation: glowText 3s ease-in-out infinite;
   }
-
-  @media (max-width: 768px) {
-  .phone-mockup {
-    animation: none;
-  }
-}
-
     </style>
   </head>
 
@@ -312,35 +317,38 @@
 
       <!-- Project List -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition mb-10 bg-white/10 backdrop-blur overflow-hidden"
+  class="experience-card rounded-2xl p-6 md:p-8 mb-10 bg-white/10 backdrop-blur hover:shadow-xl transition"
 >
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-    
-    <!-- Mockup Phone -->
-    <div class="relative phone-mockup flex justify-center">
-      <div
-        class="relative w-[240px] h-[480px] md:w-[240px] md:h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
-      >
-        <!-- Screen -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    <!-- MOCKUP PHONE (AMAN DESKTOP & MOBILE) -->
+    <div class="flex justify-center md:justify-start">
+      <!-- PEMBATAS UKURAN (INI KUNCI UTAMA) -->
+      <div class="w-full max-w-[260px] flex justify-center">
+
         <div
-          class="w-full h-full bg-white rounded-[28px] overflow-hidden"
+          class="animate-float relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
         >
-          <img
-            src="assets/iPhone 13 & 14 - 1 (2).png"
-            alt="Smart City App UI"
-            class="object-cover"
-          />
+          <!-- Screen -->
+          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+            <img
+              src="assets/iPhone 13 & 14 - 1 (2).png"
+              alt="Smart City App UI"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Notch -->
+          <div
+            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
+          ></div>
         </div>
 
-        <!-- Notch -->
-        <div
-          class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
-        ></div>
       </div>
     </div>
 
-    <!-- Content -->
-    <div>
+    <!-- CONTENT -->
+    <div class="text-center md:text-left">
       <h5 class="font-bold text-xl text-white mb-3">
         SMART City Mobile App
       </h5>
@@ -356,7 +364,7 @@
       <a
         href="https://www.figma.com/design/QBgoxpD3OY0BzvCJdrEJ9d/SMART-CITY?node-id=0-1"
         target="_blank"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:scale-105 hover:shadow-lg hover:bg-orange-400"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:bg-purple-600 hover:shadow-lg"
       >
         Lihat Desain Figma →
       </a>
@@ -364,14 +372,41 @@
 
   </div>
 </div>
+
         <!-- Project 2 -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition mb-10 bg-white/10 backdrop-blur overflow-hidden"
+  class="experience-card rounded-2xl p-6 md:p-8 mb-10 bg-white/10 backdrop-blur hover:shadow-xl transition"
 >
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-    
-    <!-- Content -->
-    <div class="order-2 md:order-1">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    <!-- MOCKUP PHONE (SAMA PERSIS DENGAN CARD 1) -->
+    <div class="flex justify-center md:justify-start order-1 md:order-2">
+      <!-- PEMBATAS UKURAN (KUNCI BIAR TIDAK GEDE DI DESKTOP) -->
+      <div class="w-full max-w-[260px] flex justify-center">
+
+        <div
+          class="animate-float relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
+        >
+          <!-- Screen -->
+          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+            <img
+              src="assets/screen welcoming.png"
+              alt="HR Mobile App UI"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Notch -->
+          <div
+            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
+          ></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="order-2 md:order-1 text-center md:text-left">
       <h5 class="font-bold text-xl text-white mb-3">
         Human Resources Mobile App <br />
         PT Gerbang Data Indonesia
@@ -385,54 +420,31 @@
         karyawan melalui antarmuka yang intuitif dan user-friendly.
       </p>
 
-      <!-- Action Buttons -->
-<div class="flex flex-wrap gap-4 mt-4">
-  <a
-    href="https://www.figma.com/design/WhIOSazs0v7aqQuHz4kuVt/HR--PT-Gerbang-Data-Indonesia-?node-id=0-1"
-    target="_blank"
-    class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition
-           hover:scale-105 hover:shadow-lg hover:bg-orange-400"
-  >
-    Lihat Desain Figma →
-  </a>
-
-  <a
-    href="https://www.canva.com/design/DAG-dYmK6io/G4XLX66eCNLB-tpv712DKw/edit"
-    target="_blank"
-    class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white rounded-md font-semibold transition
-           hover:scale-105 hover:shadow-lg hover:bg-blue-500"
-  >
-    Lihat Dokumentasi UX →
-  </a>
-</div>
-
-    </div>
-
-    <!-- Mockup Phone -->
-    <div class="relative phone-mockup flex justify-center order-1 md:order-2">
-      <div
-        class="relative w-[240px] h-[480px] md:w-[240px] md:h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
-      >
-        <!-- Screen -->
-        <div
-          class="w-full h-full bg-white rounded-[28px] overflow-hidden"
+      <!-- ACTION BUTTONS -->
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <a
+          href="https://www.figma.com/design/WhIOSazs0v7aqQuHz4kuVt/HR--PT-Gerbang-Data-Indonesia-?node-id=0-1"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition
+                 hover:bg-purple-600 hover:shadow-lg"
         >
-          <img
-            src="assets/screen welcoming.png"
-            alt="HR Mobile App UI"
-            class="w-full h-full object-cover"
-          />
-        </div>
+          Lihat Desain Figma →
+        </a>
 
-        <!-- Notch -->
-        <div
-          class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
-        ></div>
+        <a
+          href="https://www.canva.com/design/DAG-dYmK6io/G4XLX66eCNLB-tpv712DKw/edit"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white rounded-md font-semibold transition
+                 hover:bg-purple-600 hover:shadow-lg"
+        >
+          Lihat Dokumentasi UX →
+        </a>
       </div>
     </div>
 
   </div>
 </div>
+
 
 
       </div>
@@ -448,6 +460,7 @@
         </h3>
 
         <div class="grid md:grid-cols-2 gap-8">
+          <!-- Project Card -->
           <!-- Project Card -->
 <div
   class="group relative bg-white/10 backdrop-blur rounded-2xl p-6 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20"
