@@ -63,6 +63,13 @@
   .animate-glow {
     animation: glowText 3s ease-in-out infinite;
   }
+
+  @media (max-width: 768px) {
+  .phone-mockup {
+    animation: none;
+  }
+}
+
     </style>
   </head>
 
@@ -305,14 +312,14 @@
 
       <!-- Project List -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition mb-10 bg-white/10 backdrop-blur"
+  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition mb-10 bg-white/10 backdrop-blur overflow-hidden"
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
     
     <!-- Mockup Phone -->
     <div class="relative phone-mockup flex justify-center">
       <div
-        class="relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
+        class="relative w-[240px] h-[480px] md:w-[240px] md:h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
       >
         <!-- Screen -->
         <div
@@ -359,7 +366,7 @@
 </div>
         <!-- Project 2 -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition bg-white/10 backdrop-blur"
+  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition mb-10 bg-white/10 backdrop-blur overflow-hidden"
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
     
@@ -404,7 +411,7 @@
     <!-- Mockup Phone -->
     <div class="relative phone-mockup flex justify-center order-1 md:order-2">
       <div
-        class="relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
+        class="relative w-[240px] h-[480px] md:w-[240px] md:h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
       >
         <!-- Screen -->
         <div
