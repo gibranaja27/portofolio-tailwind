@@ -108,12 +108,46 @@
     background-size: 200% 200%;
     animation: gradientShift 3s ease-in-out infinite;
   }
+  
+  @keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero {
+  animation: heroFadeUp 1s ease-out forwards;
+}
+
+.animated-gradient {
+  background: linear-gradient(90deg, #fb923c, #60a5fa, #fb923c);
+  background-size: 200% auto;
+
+  background-clip: text;              /* standard */
+  -webkit-background-clip: text;      /* Safari / Chrome */
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+
     </style>
   </head>
 
   <body
-    id="navbar" class="bg-gradient-to-br from-primary via-secondary to-accent min-h-screen text-white scroll-smooth"
-  >
+    id="navbar" class="bg-gradient-to-br from-primary via-secondary to-accent min-h-screen text-white scroll-smooth">
     <!-- ================= NAVBAR ================= -->
     <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur z-50">
       <div
@@ -211,9 +245,9 @@
       id="home"
       class="flex items-center justify-center text-center min-h-screen px-6"
     >
-      <div class="max-w-3xl reveal">
+      <div class="max-w-3xl animate-hero">
         <h2 class="text-4xl md:text-6xl font-extrabold mb-6">
-          Web & <span class="text-accent">Mobile Developer</span>
+          Web & <span class="animated-gradient">Mobile Developer</span>
         </h2>
 
         <p class="text-white/80 mb-8 leading-relaxed">
