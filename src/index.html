@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | Front End & Flutter Developer</title>
-    <link rel="stylesheet" href="../dist/output.css" />
+    <link rel="stylesheet" href="./output.css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
     <style>
       .reveal {
@@ -16,29 +17,41 @@
         opacity: 1;
         transform: translateY(0);
       }
-      .experience-card {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-  }
-
-  .experience-card.show {
-    opacity: 1;
+      @keyframes float-desktop {
+  0% {
     transform: translateY(0);
   }
-
-  .phone-mockup {
-    animation: float 4s ease-in-out infinite;
+  50% {
+    transform: translateY(-20px);
   }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  100% {
+    transform: translateY(0);
   }
+}
+
+@keyframes float-mobile {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float-mobile 4s ease-in-out infinite;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .animate-float {
+    animation: float-desktop 4s ease-in-out infinite;
+  }
+}
+
 
   @keyframes glowText {
     0% {
@@ -61,6 +74,39 @@
 
   .animate-glow {
     animation: glowText 3s ease-in-out infinite;
+  }
+
+  /* Card Animation */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .card-animate {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .card-gradient-animate {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
   }
     </style>
   </head>
@@ -88,21 +134,21 @@
         <!-- Social Media Icons -->
         <ul class="hidden md:flex gap-4">
           <li>
-            <a href="https://www.instagram.com/gibranns_rap" target="_blank" class="hover:text-accent transition">
+            <a href="https://www.instagram.com/gibranns_rap" target="_blank" class="hover:text-purple-400 transition">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/gibran-raja-aulia-putranami" target="_blank" class="hover:text-accent transition">
+            <a href="https://linkedin.com/in/gibran-raja-aulia-putranami" target="_blank" class="hover:text-purple-400 transition">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
           </li>
           <li>
-            <a href="https://github.com/gibranaja27" target="_blank" class="hover:text-accent transition">
+            <a href="https://github.com/gibranaja27" target="_blank" class="hover:text-purple-400 transition">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
@@ -122,7 +168,7 @@
         <a href="#home" class="block hover:text-accent">Home</a>
         <a href="#about" class="block hover:text-accent">About</a>
         <a href="#skills" class="block hover:text-accent">Skills</a>
-        <a href="#experience" class="block hover:text-accent">experience</a>
+        <a href="#experience" class="block hover:text-accent">Experience</a>
         <a href="#projects" class="block hover:text-accent">My Projects</a>
         <a href="#contact" class="block hover:text-accent">Contact</a>
         <div class="flex items-center gap-2 hover:text-accent">
@@ -139,7 +185,7 @@
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/in/gibran-raja-aulia-putranami" class="text-center">My Linkedin</a>
+            <a href="https://linkedin.com/in/gibran-raja-aulia-putranami" class="text-center">My Linkedin</a>
         </div>
         <div class="flex items-center gap-2 hover:text-accent">
             <a href="#" target="_blank">
@@ -193,7 +239,7 @@
     </h3>
 
     <div
-      class="bg-gradient-to-br from-purple-500 via-blue-500 to-orange-500 rounded-2xl shadow-lg p-8 md:p-12 grid md:grid-cols-3 gap-10 items-center"
+      class="bg-gradient-to-br from-purple-500 via-blue-500 to-orange-500 rounded-2xl shadow-lg p-8 md:p-12 grid md:grid-cols-3 gap-10 items-center card-animate card-gradient-animate"
     >
       <!-- FOTO -->
       <div class="flex justify-center">
@@ -248,25 +294,25 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <!-- Skill Card -->
           <div
-            class="bg-white p-6 rounded-2xl shadow-xl text-center text-black transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-purple-500 hover:text-white"
+            class="bg-white/10 backdrop-blur p-6 rounded-2xl shadow-xl text-center text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-purple-500 hover:text-white"
           >
             Flutter
           </div>
 
           <div
-            class="bg-white p-6 rounded-2xl shadow-xl text-center text-black transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-accent hover:text-white"
+            class="bg-white/10 backdrop-blur p-6 rounded-2xl shadow-xl text-center text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-accent hover:text-white"
           >
             Laravel
           </div>
 
           <div
-            class="bg-white p-6 rounded-2xl shadow-xl text-center text-black transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-purple-500 hover:text-white"
+            class="bg-white/10 backdrop-blur p-6 rounded-2xl shadow-xl text-center text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-purple-500 hover:text-white"
           >
             UI / UX Design
           </div>
 
           <div
-            class="bg-white p-6 rounded-2xl shadow text-center text-black transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-accent hover:text-white"
+            class="bg-white/10 backdrop-blur p-6 rounded-2xl shadow text-center text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-accent hover:text-white"
           >
             Tailwind CSS
           </div>
@@ -304,35 +350,38 @@
 
       <!-- Project List -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition mb-10 bg-white/10 backdrop-blur"
+  class="experience-card rounded-2xl p-6 md:p-8 mb-10 bg-white/10 backdrop-blur hover:shadow-xl transition"
 >
-  <div class="grid md:grid-cols-2 gap-8 items-center">
-    
-    <!-- Mockup Phone -->
-    <div class="relative phone-mockup flex justify-center">
-      <div
-        class="relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
-      >
-        <!-- Screen -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    <!-- MOCKUP PHONE (AMAN DESKTOP & MOBILE) -->
+    <div class="flex justify-center md:justify-start">
+      <!-- PEMBATAS UKURAN (INI KUNCI UTAMA) -->
+      <div class="w-full max-w-[260px] flex justify-center">
+
         <div
-          class="w-full h-full bg-white rounded-[28px] overflow-hidden"
+          class="animate-float relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
         >
-          <img
-            src="assets/iPhone 13 & 14 - 1 (2).png"
-            alt="Smart City App UI"
-            class="object-cover"
-          />
+          <!-- Screen -->
+          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+            <img
+              src="assets/iPhone 13 & 14 - 1 (2).png"
+              alt="Smart City App UI"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Notch -->
+          <div
+            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
+          ></div>
         </div>
 
-        <!-- Notch -->
-        <div
-          class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
-        ></div>
       </div>
     </div>
 
-    <!-- Content -->
-    <div>
+    <!-- CONTENT -->
+    <div class="text-center md:text-left">
       <h5 class="font-bold text-xl text-white mb-3">
         SMART City Mobile App
       </h5>
@@ -348,7 +397,7 @@
       <a
         href="https://www.figma.com/design/QBgoxpD3OY0BzvCJdrEJ9d/SMART-CITY?node-id=0-1"
         target="_blank"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:scale-105 hover:shadow-lg hover:bg-orange-400"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:bg-orange-400 hover:shadow-lg"
       >
         Lihat Desain Figma →
       </a>
@@ -356,14 +405,41 @@
 
   </div>
 </div>
+
         <!-- Project 2 -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 hover:shadow-xl transition bg-white/10 backdrop-blur"
+  class="experience-card rounded-2xl p-6 md:p-8 mb-10 bg-white/10 backdrop-blur hover:shadow-xl transition"
 >
-  <div class="grid md:grid-cols-2 gap-8 items-center">
-    
-    <!-- Content -->
-    <div class="order-2 md:order-1">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    <!-- MOCKUP PHONE (SAMA PERSIS DENGAN CARD 1) -->
+    <div class="flex justify-center md:justify-start order-1 md:order-2">
+      <!-- PEMBATAS UKURAN (KUNCI BIAR TIDAK GEDE DI DESKTOP) -->
+      <div class="w-full max-w-[260px] flex justify-center">
+
+        <div
+          class="animate-float relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
+        >
+          <!-- Screen -->
+          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+            <img
+              src="assets/screen welcoming.png"
+              alt="HR Mobile App UI"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Notch -->
+          <div
+            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
+          ></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="order-2 md:order-1 text-center md:text-left">
       <h5 class="font-bold text-xl text-white mb-3">
         Human Resources Mobile App <br />
         PT Gerbang Data Indonesia
@@ -377,40 +453,31 @@
         karyawan melalui antarmuka yang intuitif dan user-friendly.
       </p>
 
-      <a
-        href="https://www.figma.com/design/WhIOSazs0v7aqQuHz4kuVt/HR--PT-Gerbang-Data-Indonesia-?node-id=0-1"
-        target="_blank"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:scale-105 hover:shadow-lg hover:bg-orange-400"
-      >
-        Lihat Desain Figma →
-      </a>
-    </div>
-
-    <!-- Mockup Phone -->
-    <div class="relative phone-mockup flex justify-center order-1 md:order-2">
-      <div
-        class="relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
-      >
-        <!-- Screen -->
-        <div
-          class="w-full h-full bg-white rounded-[28px] overflow-hidden"
+      <!-- ACTION BUTTONS -->
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <a
+          href="https://www.figma.com/design/WhIOSazs0v7aqQuHz4kuVt/HR--PT-Gerbang-Data-Indonesia-?node-id=0-1"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition
+                 hover:bg-orange-400 hover:shadow-lg"
         >
-          <img
-            src="assets/screen welcoming.png"
-            alt="HR Mobile App UI"
-            class="w-full h-full object-cover"
-          />
-        </div>
+          Lihat Desain Figma →
+        </a>
 
-        <!-- Notch -->
-        <div
-          class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
-        ></div>
+        <a
+          href="https://www.canva.com/design/DAG-dYmK6io/G4XLX66eCNLB-tpv712DKw/edit"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white rounded-md font-semibold transition
+                 hover:bg-blue-400 hover:shadow-lg"
+        >
+          Lihat Dokumentasi UX →
+        </a>
       </div>
     </div>
 
   </div>
 </div>
+
 
 
       </div>
@@ -451,16 +518,16 @@
 
   <!-- CTA -->
   <div
-    class="flex gap-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+    class="flex gap-3"
   >
     <a
-      href="#"
+      href="https://github.com/gibranaja27/astacala_rescue_mobile_flutter_Gibran.git"
       class="px-5 py-2 text-sm bg-secondary text-white rounded-lg hover:bg-blue-400"
     >
       GitHub
     </a>
     <a
-      href="#"
+      href="https://www.figma.com/design/VwatqGQaQsboGN4dv1mpE7/UI-Astacala-Rescue-Mobile?t=Xqrt8iWGiD73GUwP-1"
       class="px-5 py-2 text-sm bg-accent text-white rounded-lg hover:bg-orange-400"
     >
       Prototype Design
@@ -493,19 +560,19 @@
 
   <!-- CTA -->
   <div
-    class="flex gap-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+    class="flex gap-3"
   >
     <a
-      href="#"
+      href="https://github.com/gibranaja27/astacala_resque.git"
       class="px-5 py-2 text-sm bg-secondary text-white rounded-lg hover:bg-blue-400"
     >
       GitHub
     </a>
     <a
-      href="#"
+      href="https://www.figma.com/design/PTTqqTCrw5SFhl93AHakNv/UI-Website-Pusat-Kendali-Astacala-Rescue?t=Xqrt8iWGiD73GUwP-1"
       class="px-5 py-2 text-sm bg-accent text-white rounded-lg hover:bg-orange-400"
     >
-      UI Preview
+      Prototype Design
     </a>
   </div>
 </div>
@@ -568,7 +635,7 @@
           <!-- Social Buttons -->
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://www.linkedin.com/in/gibran-raja-aulia-putranami"
+              href="https://linkedin.com/in/gibran-raja-aulia-putranami"
               target="_blank"
               class="px-6 py-3 bg-accent text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-orange-400"
             >
