@@ -52,6 +52,11 @@
   }
 }
 
+.animate-float {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 
   @keyframes glowText {
     0% {
@@ -147,7 +152,8 @@
   </head>
 
   <body
-    id="navbar" class="bg-gradient-to-br from-primary via-secondary to-accent min-h-screen text-white scroll-smooth">
+    id="navbar" class="bg-gradient-to-br from-primary via-secondary to-accent min-h-screen text-white scroll-smooth"
+  >
     <!-- ================= NAVBAR ================= -->
     <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur z-50">
       <div
@@ -384,35 +390,35 @@
 
       <!-- Project List -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 mb-10 bg-white/10 backdrop-blur hover:shadow-xl transition"
+  class="experience-card rounded-2xl p-6 md:p-8 mb-10 hover:shadow-xl transition"
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
     <!-- MOCKUP PHONE (AMAN DESKTOP & MOBILE) -->
     <div class="flex justify-center md:justify-start">
-      <!-- PEMBATAS UKURAN (INI KUNCI UTAMA) -->
-      <div class="w-full max-w-[260px] flex justify-center">
+  <div class="w-full max-w-[260px]">
 
-        <div
-          class="animate-float relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
-        >
-          <!-- Screen -->
-          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
-            <img
-              src="assets/iPhone 13 & 14 - 1 (2).png"
-              alt="Smart City App UI"
-              class="w-full h-full object-cover"
-            />
-          </div>
+    <div class="animate-float relative aspect-[9/19] bg-black rounded-[36px] p-3 shadow-xl">
 
-          <!-- Notch -->
-          <div
-            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
-          ></div>
-        </div>
-
+      <!-- Screen -->
+      <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+        <img
+          src="assets/iPhone 13 & 14 - 1 (2).png"
+          alt="Smart City App UI"
+          class="w-full h-full object-contain"
+        />
       </div>
+
+      <!-- Notch -->
+      <div
+        class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
+      ></div>
+
     </div>
+
+  </div>
+</div>
+
 
     <!-- CONTENT -->
     <div class="text-center md:text-left">
@@ -433,7 +439,7 @@
         target="_blank"
         class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:bg-orange-400 hover:shadow-lg"
       >
-        Lihat Desain Figma →
+        Lihat Desain Figma
       </a>
     </div>
 
@@ -442,37 +448,11 @@
 
         <!-- Project 2 -->
 <div
-  class="experience-card rounded-2xl p-6 md:p-8 mb-10 bg-white/10 backdrop-blur hover:shadow-xl transition"
+  class="experience-card rounded-2xl p-6 md:p-8 mb-10 hover:shadow-xl transition"
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-    <!-- MOCKUP PHONE (SAMA PERSIS DENGAN CARD 1) -->
-    <div class="flex justify-center md:justify-start order-1 md:order-2">
-      <!-- PEMBATAS UKURAN (KUNCI BIAR TIDAK GEDE DI DESKTOP) -->
-      <div class="w-full max-w-[260px] flex justify-center">
-
-        <div
-          class="animate-float relative w-[240px] h-[480px] bg-black rounded-[36px] p-3 shadow-2xl shadow-blue-300"
-        >
-          <!-- Screen -->
-          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
-            <img
-              src="assets/screen welcoming.png"
-              alt="HR Mobile App UI"
-              class="w-full h-full object-cover"
-            />
-          </div>
-
-          <!-- Notch -->
-          <div
-            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
-          ></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- CONTENT -->
+    <!-- CONTENT (KIRI DI DESKTOP) -->
     <div class="order-2 md:order-1 text-center md:text-left">
       <h5 class="font-bold text-xl text-white mb-3">
         Human Resources Mobile App <br />
@@ -487,30 +467,53 @@
         karyawan melalui antarmuka yang intuitif dan user-friendly.
       </p>
 
-      <!-- ACTION BUTTONS -->
       <div class="flex flex-wrap gap-4 justify-center md:justify-start">
         <a
           href="https://www.figma.com/design/WhIOSazs0v7aqQuHz4kuVt/HR--PT-Gerbang-Data-Indonesia-?node-id=0-1"
           target="_blank"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition
-                 hover:bg-orange-400 hover:shadow-lg"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-md font-semibold transition hover:bg-orange-400 hover:shadow-lg"
         >
-          Lihat Desain Figma →
+          Lihat Desain Figma
         </a>
 
         <a
           href="https://www.canva.com/design/DAG-dYmK6io/G4XLX66eCNLB-tpv712DKw/edit"
           target="_blank"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white rounded-md font-semibold transition
-                 hover:bg-blue-400 hover:shadow-lg"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-400 hover:shadow-lg"
         >
-          Lihat Dokumentasi UX →
+          Lihat Dokumentasi UX
         </a>
+      </div>
+    </div>
+
+    <!-- MOCKUP PHONE (KANAN DI DESKTOP) -->
+    <div class="flex justify-center md:justify-end order-1 md:order-2">
+      <div class="w-full max-w-[260px]">
+
+        <div
+          class="animate-float relative aspect-[9/19] bg-black rounded-[36px] p-3 shadow-lg"
+        >
+          <!-- Screen -->
+          <div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+            <img
+              src="assets/screen welcoming.png"
+              alt="HR Mobile App UI"
+              class="w-full h-full object-contain"
+            />
+          </div>
+
+          <!-- Notch -->
+          <div
+            class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-gray-800 rounded-full"
+          ></div>
+        </div>
+
       </div>
     </div>
 
   </div>
 </div>
+
 
 
 
