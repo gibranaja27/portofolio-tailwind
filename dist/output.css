@@ -715,6 +715,10 @@ video {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -1322,12 +1326,20 @@ video {
     grid-column: span 2 / span 2;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:flex {
     display: flex;
   }
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:h-screen {
+    height: 100vh;
   }
 
   .md\:grid-cols-2 {
